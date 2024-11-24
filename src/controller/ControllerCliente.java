@@ -75,6 +75,7 @@ public class ControllerCliente {
         fConsCliente.btExcluir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                excluir();
             }
         });
     }

@@ -36,6 +36,7 @@ public class FTelaPrincipal extends javax.swing.JFrame {
         miConsCliente = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("AutoMobile");
 
         jMenu1.setText("Cadastro");
 

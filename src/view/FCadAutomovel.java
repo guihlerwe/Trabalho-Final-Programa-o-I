@@ -36,12 +36,13 @@ public class FCadAutomovel extends javax.swing.JDialog {
         edModelo = new javax.swing.JTextField();
         edPlaca = new javax.swing.JFormattedTextField();
         edAno = new javax.swing.JFormattedTextField();
-        checkFrom = new javax.swing.JCheckBox();
-        edFechar = new javax.swing.JButton();
-        edGravar = new javax.swing.JButton();
+        checkMercosul = new javax.swing.JCheckBox();
+        btFechar = new javax.swing.JButton();
+        btGravar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastrar Automovel");
 
         jLabel1.setText("Placa:");
 
@@ -53,13 +54,13 @@ public class FCadAutomovel extends javax.swing.JDialog {
 
         jLabel4.setText("Ano:");
 
-        checkFrom.setText("Formato Mercosul");
+        checkMercosul.setText("Formato Mercosul");
 
-        edFechar.setText("Fechar");
+        btFechar.setText("Fechar");
 
-        edGravar.setBackground(new java.awt.Color(51, 153, 255));
-        edGravar.setForeground(new java.awt.Color(255, 255, 255));
-        edGravar.setText("Gravar");
+        btGravar.setBackground(new java.awt.Color(51, 153, 255));
+        btGravar.setForeground(new java.awt.Color(255, 255, 255));
+        btGravar.setText("Gravar");
 
         jLabel5.setText("Cliente:");
 
@@ -69,9 +70,9 @@ public class FCadAutomovel extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(edGravar)
+                .addComponent(btGravar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edFechar)
+                .addComponent(btFechar)
                 .addGap(24, 24, 24))
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
@@ -87,7 +88,7 @@ public class FCadAutomovel extends javax.swing.JDialog {
                             .addComponent(jLabel1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(checkFrom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(checkMercosul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(edPlaca))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -111,7 +112,7 @@ public class FCadAutomovel extends javax.swing.JDialog {
                     .addComponent(jLabel1)
                     .addComponent(edPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
-                .addComponent(checkFrom)
+                .addComponent(checkMercosul)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(edMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,8 +131,8 @@ public class FCadAutomovel extends javax.swing.JDialog {
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(edFechar)
-                    .addComponent(edGravar))
+                    .addComponent(btFechar)
+                    .addComponent(btGravar))
                 .addGap(16, 16, 16))
         );
 
@@ -146,10 +147,10 @@ public class FCadAutomovel extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JComboBox<String> boxCliente;
-    public javax.swing.JCheckBox checkFrom;
+    public javax.swing.JButton btFechar;
+    public javax.swing.JButton btGravar;
+    public javax.swing.JCheckBox checkMercosul;
     public javax.swing.JFormattedTextField edAno;
-    public javax.swing.JButton edFechar;
-    public javax.swing.JButton edGravar;
     public javax.swing.JTextField edMarca;
     public javax.swing.JTextField edModelo;
     public javax.swing.JFormattedTextField edPlaca;

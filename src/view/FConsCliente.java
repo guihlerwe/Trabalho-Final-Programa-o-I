@@ -35,6 +35,7 @@ public class FConsCliente extends javax.swing.JDialog {
         btExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Consultar Clientes");
 
         boxCliente.setForeground(new java.awt.Color(0, 0, 0));
         boxCliente.setModel(new javax.swing.table.DefaultTableModel(
