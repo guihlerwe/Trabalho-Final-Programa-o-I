@@ -30,9 +30,7 @@ public class DAOAutomovel {
             e.printStackTrace();
             em.getTransaction().rollback();
             return false;
-        } finally {
-            em.close();
-        }
+        } 
     }
 
     public boolean editar(Automovel a) {
@@ -46,9 +44,7 @@ public class DAOAutomovel {
             e.printStackTrace();
             em.getTransaction().rollback();
             return false;
-        } finally {
-            em.close();
-        }
+        } 
     }
 
     public boolean excluir(Automovel a) {
@@ -62,9 +58,7 @@ public class DAOAutomovel {
             e.printStackTrace();
             em.getTransaction().rollback();
             return false;
-        } finally {
-            em.close();
-        }
+        } 
     }
 
     public Automovel selecionar(Automovel a) {

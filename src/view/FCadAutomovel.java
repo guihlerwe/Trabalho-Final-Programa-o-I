@@ -146,7 +146,7 @@ public class FCadAutomovel extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JComboBox<String> boxCliente;
+    public javax.swing.JComboBox<Object> boxCliente;
     public javax.swing.JButton btFechar;
     public javax.swing.JButton btGravar;
     public javax.swing.JCheckBox checkMercosul;

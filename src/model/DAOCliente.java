@@ -29,38 +29,33 @@ public class DAOCliente {
         } catch (Exception e) {
             em.getTransaction().rollback();
             return false;
-        } finally {
-            em.close();
-        }
+        } 
     }
+
     public boolean editar(Cliente c) {
         em.getTransaction().begin();
         try {
             em.merge(c);
             em.getTransaction().commit();
-            return false;
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
             em.getTransaction().rollback();
             return false;
-        } finally {
-            em.close();
-        }
+        } 
     }
-    
-       public boolean excluir(Cliente c) {
+
+    public boolean excluir(Cliente c) {
         em.getTransaction().begin();
         try {
             em.remove(c);
             em.getTransaction().commit();
-            return false;
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
             em.getTransaction().rollback();
             return false;
-        } finally {
-            em.close();
-        }
+        } 
     }
 
     public Cliente selecionar(String cpf) {
@@ -68,7 +63,7 @@ public class DAOCliente {
         consulta.setParameter("n", cpf);
         return (Cliente) consulta.getResultList();
     }
-    
+
     public List<Cliente> listar() {
         Query consulta = em.createQuery("select c from Cliente c ");
         return consulta.getResultList();

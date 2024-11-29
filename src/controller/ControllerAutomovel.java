@@ -6,8 +6,11 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Automovel;
 import model.Cliente;
 import model.DAOAutomovel;
@@ -30,7 +33,7 @@ public class ControllerAutomovel {
         fCadAutomovel = new FCadAutomovel(null, true);
         automovel = new Automovel();
         DAOA = new DAOAutomovel();
-        cliente= new Cliente();
+        cliente = new Cliente();
         DAOC = new DAOCliente();
 
     }
@@ -45,13 +48,25 @@ public class ControllerAutomovel {
         fCadAutomovel.btGravar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                inserir();
+                try {
+                    inserir();
+                } catch (ParseException ex) {
+                    Logger.getLogger(ControllerAutomovel.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     public void cadastroautmovel() {
         fCadAutomovel.setVisible(true);
+    }
+
+    public void carregarCliente() {
+        fCadAutomovel.boxCliente.removeAllItems();
+        for (Cliente c : DAOC.listar()) {
+            fCadAutomovel.boxCliente.addItem(c);
+
+        }
     }
 
     public void fecharTela() {
@@ -68,30 +83,23 @@ public class ControllerAutomovel {
         fCadAutomovel.edModelo.setText("");
     }
 
-    public void inserir() {
+    public void inserir() throws ParseException {
         if (automovel == null) {
             SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
             Date data = formatador.parse(fCadAutomovel.edAno.getText());
             String marca = fCadAutomovel.edMarca.getText();
             String modelo = fCadAutomovel.edModelo.getText();
-            
+
             String placa = "";
             if (fCadAutomovel.checkMercosul.isSelected()) {
                 placa = fCadAutomovel.edPlaca.getText();
+                Automovel automovel = new Automovel(placa, marca, modelo, 0, cliente);
 
             } else {
                 placa = fCadAutomovel.edPlaca.getText();
+                Automovel automovel = new Automovel(placa, marca, modelo, 0, cliente);
+
             }
-
-            Automovel automovel = new Automovel(placa, marca, modelo, 0, cliente);
-
-            automovel.setAno(sdf.parse(fcadAutomovel.edAno.getText()));
-
-            // Usar a DAO para salvar o automóvel no banco de dados
-            DAOAautomovel.inserir(automovel);
-
-            // Exibir mensagem de sucesso
-            JOptionPane.showMessageDialog(null, "Automóvel cadastrado com sucesso!");
 
         }
 

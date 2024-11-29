@@ -29,8 +29,6 @@ public class DAORevisao {
             e.printStackTrace();
             em.getTransaction().rollback();
             return false;
-        } finally {
-            em.close();
         }
     }
 
@@ -44,9 +42,7 @@ public class DAORevisao {
             e.printStackTrace();
             em.getTransaction().rollback();
             return false;
-        } finally {
-            em.close();
-        }
+        } 
     }
 
     public boolean excluir(Revisao r) {
@@ -59,9 +55,7 @@ public class DAORevisao {
             e.printStackTrace();
             em.getTransaction().rollback();
             return false;
-        } finally {
-            em.close();
-        }
+        } 
     }
 
     public List<Revisao> listar(Automovel a) {
