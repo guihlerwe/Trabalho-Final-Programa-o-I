@@ -102,8 +102,6 @@ public class ControllerCliente {
         fCadCliente.setVisible(false);
         fConsCliente.setVisible(false);
     }
-    
-    
 
     public void limpar() {
         cliente = null;
@@ -111,28 +109,27 @@ public class ControllerCliente {
         fCadCliente.edNome.setText("");
         fCadCliente.edTelefone.setText("");
         fCadCliente.edCpf.setText("");
-
     }
 
     public void inserir() throws ParseException {
-        if(cliente==null){
-        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-        String cpf = fCadCliente.edCpf.getText();
-        String nome = fCadCliente.edNome.getText();
-        String telefone = fCadCliente.edTelefone.getText();
-        Date data = formatador.parse(fCadCliente.edData.getText());
+        if (cliente == null) {
+            SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+            String cpf = fCadCliente.edCpf.getText();
+            String nome = fCadCliente.edNome.getText();
+            String telefone = fCadCliente.edTelefone.getText();
+            Date data = formatador.parse(fCadCliente.edData.getText());
 
-        //Date data = formatador.parse(fCadCliente.edData.getText()); // parse/format
-        Cliente cliente = new Cliente(cpf, nome, data, telefone);
-        if (DAOC.Inserir(cliente)) {
-            JOptionPane.showMessageDialog(null, "Gravado");
-            limpar();
-            fCadCliente.setVisible(false);
+            Cliente cliente = new Cliente(cpf, nome, data, telefone);
+
+            if (DAOC.Inserir(cliente)) {
+                JOptionPane.showMessageDialog(null, "Gravado");
+                limpar();
+                fCadCliente.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro");
+
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "Erro");
-
-        }
-        }else{
             cliente.setNome(fCadCliente.edNome.getText());
             if (DAOC.editar(cliente)) {
                 JOptionPane.showMessageDialog(null, "Editado");
@@ -156,6 +153,7 @@ public class ControllerCliente {
             fCadCliente.edTelefone.setText(cliente.getTelefone());
             fCadCliente.edCpf.setText(cliente.getCpf());
             fCadCliente.edData.setText(formatador.format(cliente.getDataNascimento()));
+            
             fConsCliente.setVisible(false);
             fCadCliente.setVisible(true);
             fConsCliente.setVisible(true);
@@ -174,9 +172,9 @@ public class ControllerCliente {
         return 0;
     }*/
     
-    public void excluir(){
+    public void excluir() {
         int linhaSelecionada = fConsCliente.boxCliente.getSelectedRow();
-        if(linhaSelecionada>=0){
+        if (linhaSelecionada >= 0) {
             Cliente c = model.pegarCliente(linhaSelecionada);
             if (JOptionPane.showConfirmDialog(null, "Confirma a exclusão do registro?", "Confirmação", 0) == 0) {
                 if (DAOC.excluir(c)) {
@@ -186,9 +184,9 @@ public class ControllerCliente {
                     JOptionPane.showMessageDialog(null, "Erro");
                 }
             }
-        }else {
+        } else {
             JOptionPane.showMessageDialog(null, "Selecione um registro");
         }
     }
-    
+
 }

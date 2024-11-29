@@ -67,7 +67,6 @@ public class DAOCliente {
         Query consulta = em.createQuery("select c from Cliente c where c.cpf =:n");
         consulta.setParameter("n", cpf);
         return (Cliente) consulta.getResultList();
-
     }
     
     public List<Cliente> listar() {
